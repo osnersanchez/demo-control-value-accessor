@@ -53,3 +53,11 @@ input[type="number"] {
   font-weight: bold;
   text-align: center;
 }
+
+:host {
+  &.ng-touched.ng-invalid {
+    .number-input {
+      border: solid 2px red;
+    }
+  }
+}

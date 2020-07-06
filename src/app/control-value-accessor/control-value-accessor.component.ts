@@ -8,18 +8,34 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ControlValueAccessorComponent {
 
-  myForm = this.fb.group({
+  myForm1 = this.fb.group({
     myInput1: ['', [Validators.required, Validators.max(1)]],
-    myInput2: ['', Validators.required],
-    myInput3: ['', Validators.required],
-    myInput4: ['', Validators.required]
+    myInput2: ['', Validators.required]
+  });
+
+  myForm2 = this.fb.group({
+    myInput1: ['', [Validators.required, Validators.max(1)]],
+    myInput2: ['', Validators.required]
+  });
+
+  myForm3 = this.fb.group({
+    myInput1: ['', [Validators.required, Validators.max(1)]],
+    myInput2: ['', Validators.required]
   });
 
   constructor(
     private fb: FormBuilder
   ) { }
 
-  submit() {
-    console.log(this.myForm.value);
+  submit1() {
+    console.log(this.myForm1.value);
+  }
+
+  submit2() {
+    console.log(this.myForm2.value);
+  }
+
+  submit3() {
+    console.log(this.myForm3.value);
   }
 }

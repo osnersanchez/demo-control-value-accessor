@@ -1,29 +1,50 @@
 <section class="content-section">
-  <form #myformRef="ngForm" (ngSubmit)="submit()" id="myFormId" class="content-form" [formGroup]="myForm">
+  <h1>Test with simple CustomInput</h1>
+  <form #myform1Ref="ngForm" (ngSubmit)="submit1()" id="myForm1Id" class="content-form" [formGroup]="myForm1">
     <div class="content-input">
-      <app-my-input-with-class
-        formControlName="myInput1"
-      ></app-my-input-with-class>
-      <span>{{ myForm.value.myInput1 }}</span>
+      <app-my-input formControlName="myInput1"></app-my-input>
+      <span>{{ myForm1.value.myInput1 }}</span>
     </div>
     <div class="content-input">
-      <app-my-input-with-connector
-        formControlName="myInput2"
-      ></app-my-input-with-connector>
-      <span>{{ myForm.value.myInput2 }}</span>
-    </div>
-    <div class="content-input">
-      <app-my-input-with-class
-        formControlName="myInput3"
-      ></app-my-input-with-class>
-      <span>{{ myForm.value.myInput3 }}</span>
-    </div>
-    <div class="content-input">
-      <app-my-input formControlName="myInput4"></app-my-input>
-      <span>{{ myForm.value.myInput4 }}</span>
+      <app-my-input formControlName="myInput2"></app-my-input>
+      <span>{{ myForm1.value.myInput2 }}</span>
     </div>
   </form>
-  <button form="myFormId" mat-raised-button color="primary" type="submit">
+  <button form="myForm1Id" mat-raised-button color="primary" type="submit">
+    Send form
+    <span class="material-icons">send</span>
+  </button>
+</section>
+<section class="content-section">
+  <h1>Test with connector CustomInput</h1>
+  <form #myform2Ref="ngForm" (ngSubmit)="submit2()" id="myForm2Id" class="content-form" [formGroup]="myForm2">
+    <div class="content-input">
+      <app-my-input-with-connector formControlName="myInput1"></app-my-input-with-connector>
+      <span>{{ myForm2.value.myInput1 }}</span>
+    </div>
+    <div class="content-input">
+      <app-my-input-with-connector formControlName="myInput2"></app-my-input-with-connector>
+      <span>{{ myForm2.value.myInput2 }}</span>
+    </div>
+  </form>
+  <button form="myForm2Id" mat-raised-button color="primary" type="submit">
+    Send form
+    <span class="material-icons">send</span>
+  </button>
+</section>
+<section class="content-section">
+  <h1>Test with class CustomInput</h1>
+  <form #myform3Ref="ngForm" (ngSubmit)="submit3()" id="myForm3Id" class="content-form" [formGroup]="myForm3">
+    <div class="content-input">
+      <app-my-input-with-class formControlName="myInput1"></app-my-input-with-class>
+      <span>{{ myForm3.value.myInput1 }}</span>
+    </div>
+    <div class="content-input">
+      <app-my-input-with-class formControlName="myInput2"></app-my-input-with-class>
+      <span>{{ myForm3.value.myInput2 }}</span>
+    </div>
+  </form>
+  <button form="myForm3Id" mat-raised-button color="primary" type="submit">
     Send form
     <span class="material-icons">send</span>
   </button>

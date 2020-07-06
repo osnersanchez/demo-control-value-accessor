@@ -70,3 +70,11 @@ input[type="number"] {
     color: red;
   }
 }
+
+:host {
+  &.ng-touched.ng-invalid {
+    .number-input {
+      border: solid 2px red;
+    }
+  }
+}
