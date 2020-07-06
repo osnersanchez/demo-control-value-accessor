@@ -17,11 +17,11 @@ export class ControlValueAccessorExtend<T = string> implements ControlValueAcces
     return this.val;
   }
 
-  @HostBinding('class.form-submited') get submited() {
-    return (this.controlContainer as FormGroupDirective).submitted;
-  }
+  // @HostBinding('class.form-submited') get submited() {
+  //   return (this.controlContainer as FormGroupDirective).submitted;
+  // }
 
-  constructor(private controlContainer: ControlContainer) { }
+  // constructor(private controlContainer: ControlContainer) { }
 
   private onChange = (value: T) => { };
   private onTouch = () => { };
