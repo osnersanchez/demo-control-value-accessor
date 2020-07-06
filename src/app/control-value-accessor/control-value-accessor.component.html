@@ -1,0 +1,30 @@
+<section class="content-section">
+  <form #myformRef="ngForm" (ngSubmit)="submit()" id="myFormId" class="content-form" [formGroup]="myForm">
+    <div class="content-input">
+      <app-my-input-with-class
+        formControlName="myInput1"
+      ></app-my-input-with-class>
+      <span>{{ myForm.value.myInput1 }}</span>
+    </div>
+    <div class="content-input">
+      <app-my-input-with-connector
+        formControlName="myInput2"
+      ></app-my-input-with-connector>
+      <span>{{ myForm.value.myInput2 }}</span>
+    </div>
+    <div class="content-input">
+      <app-my-input-with-class
+        formControlName="myInput3"
+      ></app-my-input-with-class>
+      <span>{{ myForm.value.myInput3 }}</span>
+    </div>
+    <div class="content-input">
+      <app-my-input formControlName="myInput4"></app-my-input>
+      <span>{{ myForm.value.myInput4 }}</span>
+    </div>
+  </form>
+  <button form="myFormId" mat-raised-button color="primary" type="submit">
+    Send form
+    <span class="material-icons">send</span>
+  </button>
+</section>

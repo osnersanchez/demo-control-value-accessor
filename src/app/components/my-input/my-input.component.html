@@ -1,0 +1,16 @@
+<div class="number-input">
+  <button (click)="!isDisabled && addValue(minusOne)">
+    <i aria-hidden="true" class="material-icons">remove</i>
+  </button>
+  <input
+    (input)="onInput($event.target.value)"
+    [value]="value"
+    [disabled]="isDisabled"
+    class="quantity"    
+    name="quantity"
+    type="number"
+  />
+  <button (click)="!isDisabled && addValue(one)" class="plus">
+    <i aria-hidden="true" class="material-icons">add</i>
+  </button>
+</div>

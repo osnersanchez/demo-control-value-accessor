@@ -1,0 +1,23 @@
+<div class="number-input">
+  <button type="button"  (click)="!isDisabled && addValue(minusOne)">
+    <i aria-hidden="true" class="material-icons">remove</i>
+  </button>
+  <!-- <input
+    (input)="onInput($event.target.value)"
+    [value]="value"
+    [disabled]="isDisabled"
+    class="quantity"
+    name="quantity"
+    type="number"
+  /> -->
+  <span
+    [class.positive]="value > 0"
+    [class.negative]="value < 0"
+    class="number-label"
+  >
+    {{ this.value }}
+  </span>
+  <button type="button" (click)="!isDisabled && addValue(one)" class="plus">
+    <i aria-hidden="true" class="material-icons">add</i>
+  </button>
+</div>
