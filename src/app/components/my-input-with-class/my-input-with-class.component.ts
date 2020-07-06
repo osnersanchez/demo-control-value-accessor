@@ -1,6 +1,6 @@
 import { Component, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR} from '@angular/forms';
-import { ControlValueAccessorExtend } from './control-value-accessor-extend';
+import { ControlValueAccessorExtendDirective } from './control-value-accessor-extend.directive';
 
 @Component({
   selector: 'app-my-input-with-class',
@@ -14,7 +14,7 @@ import { ControlValueAccessorExtend } from './control-value-accessor-extend';
     }
   ]
 })
-export class MyInputWithClassComponent extends ControlValueAccessorExtend<number> {
+export class MyInputWithClassComponent extends ControlValueAccessorExtendDirective<number> {
 
   readonly minusOne = -1;
   readonly one = 1;

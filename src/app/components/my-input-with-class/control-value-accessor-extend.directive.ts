@@ -1,9 +1,9 @@
 import { ControlValueAccessor, ControlContainer, FormGroupDirective } from '@angular/forms';
 import { FunctionParam, FunctionType } from '../interfaces';
-import { HostBinding,  Injectable, Directive } from '@angular/core';
+import { HostBinding, Directive } from '@angular/core';
 
 @Directive()
-export class ControlValueAccessorExtend<T = string> implements ControlValueAccessor {
+export class ControlValueAccessorExtendDirective<T = string> implements ControlValueAccessor {
   private val: T;
 
   counter = 0;
