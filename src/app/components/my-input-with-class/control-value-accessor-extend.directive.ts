@@ -1,6 +1,6 @@
 import { ControlValueAccessor, ControlContainer, FormGroupDirective } from '@angular/forms';
 import { FunctionParam, FunctionType } from '../interfaces';
-import { HostBinding, Directive } from '@angular/core';
+import { HostBinding, Directive, Optional } from '@angular/core';
 
 @Directive()
 export class ControlValueAccessorExtendDirective<T = string> implements ControlValueAccessor {
@@ -19,10 +19,10 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
   }
 
   @HostBinding('class.form-submited') get submited() {
-    return (this.controlContainer as FormGroupDirective).submitted;
+    return  (this.controlContainer as FormGroupDirective)?.submitted;
   }
 
-  constructor(private controlContainer: ControlContainer) { }
+  constructor(@Optional() private controlContainer: ControlContainer) { }
 
   private onChange = (value: T) => { };
   private onTouch = () => { };
