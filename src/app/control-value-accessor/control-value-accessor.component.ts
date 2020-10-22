@@ -19,8 +19,8 @@ export class ControlValueAccessorComponent {
   });
 
   myForm3 = this.fb.group({
-    myInput1: ['', [Validators.required, Validators.max(1)]],
-    myInput2: ['', Validators.required]
+    myInput1: [0, [Validators.required, Validators.max(1)]],
+    myInput2: [0, Validators.required]
   });
 
   constructor(
