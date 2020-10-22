@@ -10,9 +10,9 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
   isDisabled: boolean;
   isTouched: boolean;
   set value(newValue: T) {
+    this.writeValue(newValue);
     this.onTouch();
     this.onChange(newValue);
-    this.writeValue(newValue);
   }
   get value(): T {
     return this.val;
