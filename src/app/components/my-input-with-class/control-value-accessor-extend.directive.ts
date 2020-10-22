@@ -17,10 +17,10 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
   }
 
   @HostBinding('class.form-submited') get submited() {
-    return (this.controlContainer as FormGroupDirective).submitted;
+    return  (this.controlContainer as FormGroupDirective)?.submitted;
   }
 
-  constructor(private controlContainer: ControlContainer, @Optional() @Self() protected ngControl: NgControl ) {
+  constructor(@Optional() private controlContainer: ControlContainer, @Optional() @Self() protected ngControl: NgControl ) {
     ngControl.valueAccessor = this;
   }
 
