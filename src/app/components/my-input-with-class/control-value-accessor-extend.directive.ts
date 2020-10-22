@@ -1,6 +1,6 @@
-import { ControlValueAccessor, ControlContainer, FormGroupDirective } from '@angular/forms';
+import { ControlValueAccessor, ControlContainer, FormGroupDirective, NgControl } from '@angular/forms';
 import { FunctionParam, FunctionType } from '../interfaces';
-import { HostBinding, Directive } from '@angular/core';
+import { HostBinding, Directive, Optional, Self } from '@angular/core';
 
 @Directive()
 export class ControlValueAccessorExtendDirective<T = string> implements ControlValueAccessor {
@@ -10,9 +10,7 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
   isDisabled: boolean;
   isTouched: boolean;
   set value(newValue: T) {
-    this.val = newValue;
-    this.onTouch();
-    this.onChange(this.val);
+    this.writeValue(newValue);
   }
   get value(): T {
     return this.val;
@@ -22,7 +20,9 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
     return (this.controlContainer as FormGroupDirective).submitted;
   }
 
-  constructor(private controlContainer: ControlContainer) { }
+  constructor(private controlContainer: ControlContainer, @Optional() @Self() protected ngControl: NgControl ) {
+    ngControl.valueAccessor = this;
+  }
 
   private onChange = (value: T) => { };
   private onTouch = () => { };
@@ -41,6 +41,8 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
 
   writeValue(value: T) {
     this.val = value;
+    this.onTouch();
+    this.onChange(this.val);
     if (value) {
       this.counter = JSON.stringify(value).length;
     }

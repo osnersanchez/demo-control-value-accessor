@@ -25,7 +25,10 @@ export class ControlValueAccessorComponent {
 
   constructor(
     private fb: FormBuilder
-  ) { }
+  ) {
+    this.subscribeChanges();
+    this.intervalPatchValue();
+  }
 
   submit1() {
     console.log(this.myForm1.value);
@@ -37,5 +40,28 @@ export class ControlValueAccessorComponent {
 
   submit3() {
     console.log(this.myForm3.value);
+  }
+
+  intervalPatchValue() {
+    setInterval(() => {
+      this.myForm3.patchValue({
+        myInput1: this.myForm3.value.myInput1 + 1
+      });
+    }, 5000);
+  }
+
+  subscribeChanges() {
+    // this.myForm3.controls.myInput1.valueChanges.subscribe(values => {
+    //   console.log('myInput1');
+    //   console.log(values);
+    // });
+    // this.myForm3.controls.myInput2.valueChanges.subscribe(values => {
+    //   console.log('myInput2');
+    //   console.log(values);
+    // });
+    this.myForm3.valueChanges.subscribe(values => {
+      console.log('myForm3');
+      console.log(values);
+    });
   }
 }

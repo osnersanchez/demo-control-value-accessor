@@ -6,13 +6,13 @@ import { ControlValueAccessorExtendDirective } from './control-value-accessor-ex
   selector: 'app-my-input-with-class',
   templateUrl: './my-input-with-class.component.html',
   styleUrls: ['./my-input-with-class.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MyInputWithClassComponent),
-      multi: true
-    }
-  ]
+  // providers: [
+  //   {
+  //     provide: NG_VALUE_ACCESSOR,
+  //     useExisting: forwardRef(() => MyInputWithClassComponent),
+  //     multi: true
+  //   }
+  // ]
 })
 export class MyInputWithClassComponent extends ControlValueAccessorExtendDirective<number> {
 
