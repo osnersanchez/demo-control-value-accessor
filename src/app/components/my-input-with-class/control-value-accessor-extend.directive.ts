@@ -10,6 +10,8 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
   isDisabled: boolean;
   isTouched: boolean;
   set value(newValue: T) {
+    this.onTouch();
+    this.onChange(newValue);
     this.writeValue(newValue);
   }
   get value(): T {
@@ -41,8 +43,6 @@ export class ControlValueAccessorExtendDirective<T = string> implements ControlV
 
   writeValue(value: T) {
     this.val = value;
-    this.onTouch();
-    this.onChange(this.val);
     if (value) {
       this.counter = JSON.stringify(value).length;
     }
